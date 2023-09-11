@@ -23,7 +23,7 @@
                 <i class="fas fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <p>UI/UX designer</p>
+                <p>System Engineer</p>
                 <h1>Hi, I'm <span>Alejandro</span><br>from the Dominican Republic</h1>
             </div>
         </div>
@@ -80,7 +80,7 @@
             <div>
                 <i class="fa-solid fa-code"></i>
                 <h2>Web Designer</h2>
-                <p>Description for Web designer</p>
+                <p>Description for Web designer Description for Web designer Description for Web designer Description for Web designer</p>
                 <a href="#">Learn more</a>
             </div>
             <div>
@@ -146,12 +146,13 @@
                 <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your email" required>
+                    <input type="email" name="Email" placeholder="Your email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -189,5 +190,23 @@
     }
 </script>
 
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzQ0P9EiD2lkQ9iALR7YanSdy4jG3wLNQZ4BAoHK0_YLkrlcTIl_JkUhrUsYAlMp98S/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg") 
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message Test!"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html>
