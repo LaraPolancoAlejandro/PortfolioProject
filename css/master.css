@@ -4,10 +4,13 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     background: #080808;
     color: #fff;
+    scroll-behavior: smooth;
 }
 #header{
     width: 100%;
@@ -27,8 +30,9 @@ nav{
 }
 .logo{
     width: 140px;
+    margin: -150px;
+    
 }
-
 nav ul li{
     display: inline-block;
     list-style: none;
@@ -76,6 +80,7 @@ nav ul li a:hover::after{
     flex-wrap: wrap;
 }
 .about-col-1{
+    margin-top: 10%;
     flex-basis: 35%;
 }
 .about-col-1 img{
@@ -84,7 +89,11 @@ nav ul li a:hover::after{
 
 }
 .about-col-2{
+    margin-top: 10%;
     flex-basis: 60%;
+}
+.about-col-2 p{
+    margin-top: 20px;
 }
 .sub-title{
     font-size: 60px;
@@ -128,20 +137,21 @@ nav ul li a:hover::after{
 }
 .tab-contents.active-tab{
     display: block;
-}/*Services*/
+}
+/*Services*/
 #Services{
-    padding: 30px 0;
+    padding: 160px 0;
 }
 .Services-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     grid-gap: 40px;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 .Services-list div{
     background: #262626;
-    padding: 40px;
-    font-size: 13px;
+    padding: 60px;
+    font-size: 14px;
     font-weight: 300;
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
@@ -155,9 +165,13 @@ nav ul li a:hover::after{
     font-weight: 500;
     margin-bottom: 15px;
 }
+.Services-list div p{
+    font-size: 14px;
+    font-weight: 300;
+}
 .Services-list div a{
     text-decoration: none;
-    color: #fff;
+    color: #ff004f;
     font-size: 12px;
     margin-top: 20px;
     display: inline-block;
@@ -247,6 +261,7 @@ transform: scale(1.1);
     flex-basis: 35%;
 }
 .contact-right{
+    margin-top: 5%;
     flex-basis: 60%;
 }
 .contact-left p{
@@ -258,7 +273,7 @@ transform: scale(1.1);
     font-size: 25px;
 }
 .social-icons{
-    margin-top: 3opx;
+    margin-top: 30px;
 }
 .social-icons a{
     text-decoration: none;
@@ -304,6 +319,12 @@ form .btn2{
     font-weight: 300;
     margin-top: 20px;
 }
+#msg{
+    color: #61b752;
+    margin-top: -40px;
+    display: block;
+
+}
 /*CSS for phones*/
 nav .fas{
     display: none;
@@ -346,5 +367,24 @@ nav .fas{
     }
     .sub-title{
         font-size: 40px;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-2{
+        font-size: 14px;
+    }
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
     }
 }
