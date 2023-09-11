@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/master.css">
+    <script src="https://kit.fontawesome.com/417a85142f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="header">
         <div class="container">
             <nav>
                 <img src="images/logo.png" class="logo">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#Portfolio">Portfolio</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
                 </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
                 <p>UI/UX designer</p>
@@ -25,9 +28,166 @@
             </div>
         </div>
     </div>
+<!-- About -->
     <div id="About">
-
-        
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Experienced technologist specializing in API Development, ERP Implementation, and Business ProcessAutomation across diverse industries. Proficient in SQL and programming for Data Analytics.
+                        Achievements
+                        Public Contracts API: Developed an API using EntityFramework C# and SQL, transforming how companies securepublic contracts by automating the monitoring of portals.
+                        Odoo ERP: Led the implementation of Odoo, analyzing workflows and enabling data-driven decision-makingthrough SQL-based reports.
+                        Legal Office Automation: Automated administrative tasks in a legal setting, utilizing C++, Java and Git for versioncontrol, enhancing efficiency.</p>
+                        
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('Education')">Education</p>
+                    </div>    
+                    <div class="tab-contents active-tab"id="Skills">
+                        <ul>
+                            <li><Span>UI/UX</Span><br>Designing Web/App interfaces</li>
+                            <li><Span>Web Development</Span><br>Web app Development</li>
+                            <li><Span>App Development</Span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>   
+                    <div class="tab-contents" id="Experience">
+                        <ul>
+                            <li><Span>2021 - Current</Span><br>I serve as a Software Engineer at Ofimatic</li>
+                            <li><Span>2020 - 2023</Span><br>Automation Specialist at Aleron</li>
+                        </ul>
+                    </div>   
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li><Span>2021-2024</Span><br>Bachelor's degree, Systems Engineering</li>
+                            <li><Span>2023</Span><br>Career Essentials in Software Development by Microsoft</li>
+                            <li><Span>2023</Span><br>Career Essentials in Software Development by Microsoft and LinkedIn</li>
+                        </ul>
+                    </div>   
+                </div>
+            </div>
+        </div>
     </div>
+<!-- Services -->
+<div id="Services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="Services-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Designer</h2>
+                <p>Description for Web designer</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Designer2</h2>
+                <p>Description for Web designer2</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Designer3</h2>
+                <p>Description for Web designer3</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio-->
+<div id="Portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="Work-list">
+            <div class="work">
+                <img src="images/work-1.png">
+                <div class="layer">
+                    <h3>Social Media App</h3>
+                    <p>Description</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png">
+                <div class="layer">
+                    <h3>Social Media App2</h3>
+                    <p>Description2</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>Social Media App3</h3>
+                    <p>Description3</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+<!-- Contact -->
+<div id="Contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i><i class="fa-solid fa-paper-plane"></i></i>AlejandroLaraPolanco@outlook.com</p>
+                <p><i><i class="fa-solid fa-phone"></i></i>+1 829-994-3147</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/alejandrolara.p?igshid=YTQwZjQ0NmI0OA=="><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/alejandro-lara-polanco-16306a28b/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © Alejandro.</p>
+    </div>
+</div>
+
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links")
+    var tabcontents = document.getElementsByClassName("tab-contents")
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link")
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab")
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+
+</script>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+
 </body>
 </html>
