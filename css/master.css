@@ -12,12 +12,29 @@ body{
     color: #fff;
     scroll-behavior: smooth;
 }
-#header{
+#Home{
     width: 100%;
     height: 100vh;
-    background-image: url(../images/background.png);
+    background-image: url(../images/bg.png);
     background-size: cover;
     background-position: center;
+}
+.Home-text{
+    padding: 20% 10%;
+    font-size: 30px;
+}
+#sidemenu{
+     /* background-color: #080808;  */
+}
+.containerNav {
+    padding: 10px 10%;
+    position: fixed;
+    top: 0; /* Inicialmente oculto */
+    left: 0;
+    width: 100%;
+    transition: top 0.3s ease-in-out; /* Efecto de deslizamiento */
+    z-index: 1000;
+    background-color: #080808; 
 }
 .container{
     padding: 10px 10%;
@@ -31,7 +48,6 @@ nav{
 .logo{
     width: 140px;
     margin: -150px;
-    
 }
 nav ul li{
     display: inline-block;
@@ -57,16 +73,12 @@ nav ul li a::after{
 nav ul li a:hover::after{
     width: 100%;
 }
-.header-text{
-    margin-top: 20%;
-    font-size: 30px;
-}
-.header-text h1{
+.Home-text h1{
     font-size: 60px;
     margin-top: 20px;
 
 }
-.header-text h1 span{
+.Home-text h1 span{
     color:#ff004f
 }
 /* -----------about---------- */
@@ -254,6 +266,7 @@ transform: scale(1.1);
     transition: background 0.5s;
 }
 .btn:hover{
+    margin-top: 5%;
     background: #ff004f;
 }
 /*Contact*/
@@ -265,7 +278,7 @@ transform: scale(1.1);
     flex-basis: 60%;
 }
 .contact-left p{
-    margin-top: 30px;
+    margin-top: 5%;
 }
 .contact-left p i{
     color: #ff004f;
@@ -330,14 +343,17 @@ nav .fas{
     display: none;
 }
 @media only screen and (max-width:600px){
-    #header{
+    #Home{
         background-image: url(../images/phone-background.png);
     }
-    .header-text{
+    #sidemenu{
+        background-color: #ff004f;
+    }
+    .Home-text{
         margin-top: 100%;
         font-size: 16px;
     }
-    .header-text h1{
+    .Home-text h1{
         font-size: 30px;
     }
     nav .fas{
