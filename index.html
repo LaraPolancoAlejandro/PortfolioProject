@@ -78,8 +78,8 @@
     </div>
 <!-- Services -->
 <div id="Services">
+    <h1 id="Services" class="sub-title">My Services</h1>
     <div id="Services"class="container">
-        <h1 id="Services" class="sub-title">My Services</h1>
         <div class="Services-list">
             <div>
                 <i class="fa-solid fa-code"></i>
@@ -110,8 +110,8 @@
 </div>
 <!-- Portfolio-->
 <div id="Portfolio">
-    <div class="container">
-        <h1 class="sub-title">My Work</h1>
+    <h1 class="sub-title">My Work</h1>
+    <div class="containerP">
         <div class="Work-list">
             <div class="work">
                 <img src="images/work-1.png">
@@ -143,12 +143,21 @@
 </div>
 <!-- Contact -->
 <div id="Contact">
+    <h1 class="sub-title">Contact Me</h1>
     <div class="containerC">
         <div class="row">
-            <h1 class="sub-title2">Contact Me</h1>
             <div class="contact-left">
-                <p class="Email"><i><i class="fa-solid fa-paper-plane"></i></i>AlejandroLaraPolanco0408@outlook.com</p>
-                <p class="Phone"><i><i class="fa-solid fa-phone"></i></i>+1 829-994-3147</p>
+                <p class="Email">
+                    <i><i class="fa-solid fa-paper-plane"></i></i>
+                    <span id="emailText">AlejandroLaraPolanco0408@outlook.com</span>
+                    <i class="fa-regular fa-copy" onclick="copyToClipboard('emailText')"></i>
+                </p>
+                <p class="Phone">
+                    <i><i class="fa-solid fa-phone"></i></i>
+                    <span id="phoneText">+1 829-994-3147</span>
+                    <i class="fa-regular fa-copy" onclick="copyToClipboard('phoneText')"></i>
+                </p>
+                
                 <div class="social-icons">
                     <a href="https://www.instagram.com/alejandrolara.p" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/in/alejandro-lara-polanco-16306a28b/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>

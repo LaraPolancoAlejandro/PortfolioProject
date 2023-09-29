@@ -26,7 +26,7 @@
     }
 
 
-    /* Form de contactar */
+/* Form de contactar */
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzQ0P9EiD2lkQ9iALR7YanSdy4jG3wLNQZ4BAoHK0_YLkrlcTIl_JkUhrUsYAlMp98S/exec'
     const form = document.forms['submit-to-google-sheet']
     const msg = document.getElementById("msg") 
@@ -44,60 +44,95 @@
         .catch(error => console.error('Error!', error.message))
     })
 
-    /* Barra de navegacion*/
-    document.addEventListener("DOMContentLoaded", function() {
-        let lastScrollTop = 0;
-        const containerNav = document.querySelector(".containerNav");
-        const body = document.querySelector("body"); // Selecciona el cuerpo del documento
-        const threshold = 100;
-        const homeDiv = document.getElementById("Home");
-        let timeoutId;
-    
-        function updateNavPosition(scrollTop) {
-            let homeDivTop = homeDiv.offsetTop;
-            let homeDivBottom = homeDivTop + homeDiv.offsetHeight;
-    
-            if (scrollTop >= homeDivTop && scrollTop <= homeDivBottom) {
-                containerNav.style.position = "static";
-                body.style.paddingTop = "0px"; // Restablecer el padding superior del cuerpo
-            } else {
-                containerNav.style.position = "fixed";
-    
-                if (scrollTop > lastScrollTop) {
-                    containerNav.style.top = "-100%";
-                    body.style.paddingTop = "0px"; // Restablecer el padding superior del cuerpo
-                } else {
-                    containerNav.style.top = "0";
-                    body.style.paddingTop = "60px"; // Ajustar el padding superior del cuerpo
-                }
-            }
-    
-            lastScrollTop = scrollTop;
-        }
-    
-        window.addEventListener("scroll", function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            updateNavPosition(scrollTop);
-        });
-    
-        window.addEventListener("mousemove", function(event) {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-            if (event.clientY < threshold) {
-                updateNavPosition(scrollTop);
-                clearTimeout(timeoutId);
-            } else {
-                clearTimeout(timeoutId);
-                timeoutId = setTimeout(function() {
-                    containerNav.style.top = "-100%";
-                    body.style.paddingTop = "0px"; // Restablecer el padding superior del cuerpo
-                }, 500);
-            }
+/* Barra de navegación */
+document.addEventListener("DOMContentLoaded", function() {
+    let lastScrollTop = 0;
+    const containerNav = document.querySelector(".containerNav");
+    const body = document.querySelector("body");
+    const threshold = 100;
+    const homeDiv = document.getElementById("Home");
+    let timeoutId;
+    let linkSelected = false; // Variable para rastrear si se ha seleccionado un enlace
+
+    // Escucha los clics en los enlaces
+    document.querySelectorAll("#sidemenu li a").forEach(link => {
+        link.addEventListener("click", function() {
+            linkSelected = true;
         });
     });
+
+    function updateNavPosition(scrollTop) {
+        let homeDivTop = homeDiv.offsetTop;
+        let homeDivBottom = homeDivTop + homeDiv.offsetHeight;
+
+        if (scrollTop >= homeDivTop && scrollTop <= homeDivBottom) {
+            containerNav.style.top = "0";
+            containerNav.style.position = "static";
+            body.style.paddingTop = "0px";
+        } else {
+            containerNav.style.position = "fixed";
+
+            if (scrollTop > lastScrollTop) {
+                containerNav.style.top = "-100%";
+                body.style.paddingTop = "0px";
+            } else {
+                containerNav.style.top = "0";
+                body.style.paddingTop = "50px";
+            }
+
+            // Si se ha seleccionado un enlace, no desplazar el contenido hacia arriba
+            if (linkSelected) {
+                body.style.paddingTop = "50px";
+            }
+        }
+
+        lastScrollTop = scrollTop;
+    }
+
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        updateNavPosition(scrollTop);
+    });
+
+    window.addEventListener("mousemove", function(event) {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (event.clientY < threshold) {
+            updateNavPosition(scrollTop);
+            clearTimeout(timeoutId);
+        } else {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(function() {
+                if (scrollTop < homeDiv.offsetTop || scrollTop > homeDiv.offsetTop + homeDiv.offsetHeight) {
+                    containerNav.style.top = "-100%";
+                    if (!linkSelected) { // Solo desplazar el contenido hacia arriba si no se ha seleccionado un enlace
+                        body.style.paddingTop = "0px";
+                    }
+                }
+            }, 500);
+        }
+    });
+});
+
     
     
-    
+    /* CopyToClipboard*/
+    function copyToClipboard(elementId) {
+    // Crea un elemento de entrada de texto
+    var inputElement = document.createElement("input");
+    // Establece su valor en el texto del elemento que se va a copiar
+    inputElement.value = document.getElementById(elementId).textContent;
+    // Añade el elemento de entrada al DOM
+    document.body.appendChild(inputElement);
+    // Selecciona el texto
+    inputElement.select();
+    // Copia el texto al portapapeles
+    document.execCommand("copy");
+    // Elimina el elemento de entrada del DOM
+    document.body.removeChild(inputElement);
+}
+
+
     
     
     
